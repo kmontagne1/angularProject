@@ -20,7 +20,8 @@ Après l'installation, vérifiez que tout est en place :
 node --version
 npm --version
 ```
-2️⃣ Installation de l’Angular CLI
+---
+##2️⃣ Installation de l’Angular CLI
 
 Pour installer Angular
 ```bash
@@ -31,7 +32,8 @@ Pour vérifier l'instalation :
 ```bash
 ng --version
 ```
-3️⃣ Nettoyage du projet (si nécessaire)
+---
+##3️⃣ Nettoyage du projet (si nécessaire)
 
 Si vous avez cloné un projet Angular existant ou que vous rencontrez des erreurs de dépendances, effectuez un nettoyage :
 ```bash
@@ -42,27 +44,32 @@ rm -rf node_modules package-lock.json
 rd /s /q node_modules
 del package-lock.json
 ```
-4️⃣ Réinstallation des dépendances
+---
+##4️⃣ Réinstallation des dépendances
 
 Une fois le nettoyage effectué, réinstallez les dépendances du projet :
 ```bash
 npm install
 ```
+---
 
-5️⃣ Compilation du projet
+##5️⃣ Compilation du projet
 
 Compilez le projet Angular pour vérifier qu’il fonctionne correctement :
 ```bash
 ng build
 ```
+---
 
-6️⃣ Lancement du serveur de développement
+##6️⃣ Lancement du serveur de développement
 
 Pour lancer le projet en local (sur http://localhost:4200) :
 ```bash
 ng serve
-``` 
-✅ Résultat
+```
+---
+
+##✅ Résultat
 
 Si tout est correct, votre application Angular sera accessible à cette adresse :
 ➡️ http://localhost:4200
@@ -74,7 +81,8 @@ npm cache clean --force
 ```
 Recommencez les étapes 3 à 5.
 
-
+---
+---
 
 # Ponyracer
 
