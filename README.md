@@ -68,11 +68,11 @@ Si tout est correct, votre application Angular sera accessible à cette adresse 
 ➡️ http://localhost:4200
 🧼 Dépannage (en cas d’erreurs)
 
-    Supprimez le cache npm :
+Supprimez le cache npm :
 ```bash
 npm cache clean --force
 ```
-    Recommencez les étapes 3 à 5.
+Recommencez les étapes 3 à 5.
 
 
 
