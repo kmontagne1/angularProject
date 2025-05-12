@@ -1,0 +1,109 @@
+.selected {
+    font-weight: bold; /* Mettre le nom en gras */
+    color: #007bff; /* Changer la couleur du texte */
+}
+
+/* Conteneur principal pour la course en live */
+.race-live {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Message d'erreur */
+.alert-danger {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Section pour afficher la course en attente */
+.race-live .pending {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Section pour afficher la course en cours */
+.race-live .running {
+    margin-bottom: 30px;
+    position: relative;
+    height: 400px; /* Augmenter la hauteur pour que chaque poney ait sa ligne */
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Espacement entre les poneys */
+}
+
+/* Poney dans la course, chaque poney sur une ligne différente */
+.running .pony-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+/* Drapeau et ligne d'arrivée */
+.running .fa-flag {
+    position: absolute;
+    top: -35px; /* Ajuster pour placer le drapeau légèrement au-dessus de la ligne d'arrivée */
+    right: 0.6%;
+    color: green;
+    font-size: 36px;
+}
+
+/* Ajouter la ligne d'arrivée alignée avec le drapeau */
+.running .finish-line {
+    position: absolute;
+    right: 3%; /* Aligner avec le drapeau */
+    width: 3px;
+    height: 100%;
+    background-color: rgb(255, 255, 255); /* Ligne d'arrivée blanche */
+    border-left: 3px dotted rgb(0, 0, 0); /* Traits de la ligne d'arrivée */
+    z-index: 10; /* S'assurer que la ligne d'arrivée soit au-dessus de tout autre élément */
+}
+
+/* Poney (lorsqu'il est en mouvement) */
+.pr-pony {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.pr-pony:hover {
+    transform: scale(1.05); /* Effet d'agrandissement au survol */
+}
+
+/* Style pour les poneys en statut "FINISHED" */
+.finished .pony-wrapper {
+    opacity: 0.5; /* Réduit l'opacité des poneys une fois la course terminée */
+}
+
+.finished .selected {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8); /* Ombrage plus prononcé pour les poneys gagnants */
+}
+
+/* Affichage des résultats des poneys gagnants */
+.winner {
+    color: green;
+    font-weight: bold;
+}
+
+.loser {
+    color: red;
+}
+
+/* Alerte de victoire / défaite */
+.alert-success {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+}
+
+.alert-warning {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    background-color: #ffc107;
+    color: black;
+}

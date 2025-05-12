@@ -1,6 +1,19 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import {routes} from './app/app.routes'
+import { provideRouter } from '@angular/router';
+import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
+import { JwtInterceptorService } from './app/jwt-interceptor.service';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes), // Fournir les routes au routeur Angular
+    provideHttpClient(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useExisting: JwtInterceptorService,
+      multi: true  // Permet d'ajouter plusieurs interceptors
+    }
+  ]
+}).catch((err) => console.error(err));

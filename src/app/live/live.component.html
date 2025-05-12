@@ -1,0 +1,56 @@
+<div *ngIf="raceRunning; else loading" class="race-live">
+  <h2>{{ raceRunning.name }}</h2>
+
+  <div *ngIf="error" class="alert alert-danger">
+    A problem occurred during the live.
+  </div>
+
+  <div [ngSwitch]="raceRunning.status">
+
+    <!-- Si la course est en attente -->
+    <div *ngSwitchCase="'PENDING'" class="pending">
+      <div>The race will start {{ raceRunning.startInstant | fromNow }}</div>
+      <div class="row">
+        <div *ngFor="let pony of raceRunning.ponies" class="col-sm-2" [class.selected]="pony.id === raceRunning.betPonyId">
+          <pr-pony [ponyModel]="pony"></pr-pony>
+        </div>
+      </div>
+    </div>
+
+    <!-- Si la course est en cours -->
+    <div *ngSwitchCase="'RUNNING'" class="running">
+      <div class="finish-line"></div> <!-- Ligne d'arrivée -->
+      <div style="margin-left: 95%; margin-bottom: 5px;">
+        <span class="fa fa-flag"></span>
+      </div>
+        <div *ngFor="let pony of poniesWithPosition trackBy ponyById" class="pony-wrapper" [class.selected]="pony.id === raceRunning.betPonyId" [style.marginLeft.%]="pony.position - 5" style="transition: all linear 1s">
+          <pr-pony [ponyModel]="pony" [isRunning]="true" [isBoosted]="pony.boosted" (ponyClicked)="onClick(pony)"></pr-pony>
+      </div>
+    </div>
+
+    <!-- Si la course est terminée -->
+    <div *ngSwitchCase="'FINISHED'" class="finished">
+      <div *ngIf="!winners.length; else displayWinners">The race is over.</div>
+      <ng-template #displayWinners>
+        <div class="alert alert-success" *ngIf="betWon">You won your bet!</div>
+        <div class="alert alert-warning" *ngIf="raceRunning.betPonyId && !betWon">You lost your bet.</div>
+        <div>Most Valuable Ponies</div>
+        <div class="row">
+          <div *ngFor="let winner of winners" class="col-12 col-md-2" [class.selected]="winner.id === raceRunning.betPonyId">
+            <pr-pony [ponyModel]="winner"></pr-pony>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+
+    <!-- Si l'état n'est pas reconnu -->
+    <div *ngSwitchDefault>
+      <p>Unknown race status.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Template de chargement -->
+<ng-template #loading>
+  <p>Loading race details...</p>
+</ng-template>

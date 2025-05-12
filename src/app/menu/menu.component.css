@@ -1,0 +1,48 @@
+/* Aligner les éléments du menu horizontalement */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Assurer l'alignement des éléments à droite */
+.navbar-nav.ml-auto {
+  margin-left: auto; /* Permet d'aligner tout à droite */
+}
+
+/* Ajuster l'espacement entre les éléments du menu */
+.navbar-nav .nav-item {
+  margin-right: 15px;
+  display: inline-flex;
+}
+
+/* Centrer les éléments de droite dans la navbar */
+.navbar-text {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacement entre le texte et les icônes/boutons */
+}
+
+/* S'assurer que le bouton logout ne prend pas trop de place */
+.navbar-btn {
+  padding: 0;
+  margin-left: 10px;
+}
+
+/* Ajouter un style au bouton toggle dans les petites résolutions */
+.navbar-toggler {
+  border: none;
+}
+
+/* Espacement pour le titre et les liens à gauche */
+.navbar-brand {
+  margin-right: 20px;
+}
+
+/* Personnalisation responsive si nécessaire */
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

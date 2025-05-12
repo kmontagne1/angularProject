@@ -1,0 +1,15 @@
+.selected {
+    border: 3px solid green;
+    border-radius: 10px;
+  }
+
+  .selected-pony {
+    border: 3px solid green;
+    border-radius: 8px;
+  }
+
+
+pr-pony:hover {
+    transform: scale(1.05); /* Agrandit légèrement */
+    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.5); /* Ajoute une ombre verte */
+  }

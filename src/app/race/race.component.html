@@ -1,0 +1,15 @@
+<div>
+  <h2>{{ raceModel?.name }}</h2>  <!-- Affichage du nom de la course -->
+  <p>Debut dans : {{raceModel?.startInstant | fromNow}}</p>
+  <h3>ID de la course : {{ raceModel?.id }}</h3>  <!-- Affichage de l'ID de la course -->
+  <h3>Poneys participants :</h3>
+  <ul>
+    <li *ngFor="let poney of raceModel.ponies">
+      <pr-pony [ponyModel]="poney"></pr-pony>  <!-- Affichage des poneys -->
+    </li>
+  </ul>
+  <h3>Heure de départ : {{ raceModel?.startInstant }}</h3>  <!-- Affichage de l'heure de départ -->
+</div>
+
+
+

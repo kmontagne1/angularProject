@@ -1,0 +1,30 @@
+<div *ngIf="betFailed" class="alert alert-danger">
+    The race is already started or finished.
+  </div>
+
+  <div *ngIf="raceModel; else loading">
+    <h2>{{ raceModel.name }}</h2>
+    <p>Départ dans : {{ raceModel.startInstant | fromNow }}</p>
+  
+    <h3>Poneys engagés :</h3>
+    <div class="py-2">Click to bet on your favorite pony</div>
+    <div class="row">
+      <div *ngFor="let pony of raceModel.ponies" class="col-12 col-md-2" [ngClass]="{selected: isPonySelected(pony)}">
+        <pr-pony [ponyModel]="pony" (ponyClicked)="betOnPony(pony)" [ngClass]="{'selected-pony': pony.id === selectedPonyId}"></pr-pony>
+      </div>
+    </div>
+  
+    <div class="mt-3">
+      <a [routerLink]="['/races', raceModel.id, 'live']" class="btn btn-primary">Watch live!</a>
+    </div>
+  </div>
+  
+  <ng-template #loading>
+    <p>Loading race details...</p>
+  </ng-template>
+  <br>
+    <div class="mt-3">
+      <a [routerLink]="'/races'" class="btn btn-secondary">Retour à la liste des courses</a>
+    </div>
+  
+  

@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+      <h1>Sign up</h1>
+      <div *ngIf="registrationFailed" id="registration-error" class="alert alert-danger">Try again with another login.</div>
+      <form (ngSubmit)="register()" [formGroup]="userForm">
+  
+        <div class="form-group">
+          <label for="login" id="login-label">Login</label>
+          <input id="login" class="form-control" formControlName="login">
+          <div *ngIf="loginCtrl.dirty && loginCtrl.hasError('required')" id="login-warning">Login is required</div>
+          <div *ngIf="loginCtrl.dirty && loginCtrl.hasError('minlength')" id="login-length-error">Your login should be at least 3 characters</div>
+        </div>
+  
+        <!-- Le formulaire imbriqué pour les champs password et confirmPassword -->
+        <div formGroupName="passwordForm">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" class="form-control" type="password" formControlName="password">
+            <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('required')" id="password-warning">Password is required</div>
+            <div *ngIf="passwordCtrl.dirty && passwordCtrl.hasError('minlength')" id="password-length-error">Password should be at least 6 characters</div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" class="form-control" type="password" formControlName="confirmPassword">
+            <div *ngIf="confirmPasswordCtrl.dirty && confirmPasswordCtrl.hasError('required')" id="confirm-password-warning">Confirm password is required</div>
+            <div *ngIf="passwordForm.hasError('matchingError')" id="password-match-error">Passwords must match</div>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="birthYear">Birth year</label>
+          <input id="birthYear" class="form-control" type="number" formControlName="birthYear">
+          <div *ngIf="birthYearCtrl.dirty && birthYearCtrl.hasError('required')" id="birthYear-warning">Birth year is required</div>
+          <div *ngIf="birthYearCtrl.dirty && (birthYearCtrl.hasError('max') || birthYearCtrl.hasError('min'))" id="binvalid-year-error">This is not a valid year</div>
+        </div>
+  
+        <button class="btn btn-primary" type="submit" [disabled]="userForm.invalid">Let's Go!</button>
+      </form>
+    </div>
+</div>
