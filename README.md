@@ -1,3 +1,81 @@
+# 📦 Installation et mise en route d’un projet Angular sous Windows
+
+## 🧰 Prérequis
+
+- Node.js (version récente recommandée)
+- npm (installé automatiquement avec Node.js)
+- Visual Studio Code (ou tout autre IDE adapté)
+- Git (optionnel mais utile)
+
+---
+
+## 1️⃣ Installation de Node.js
+
+Téléchargez et installez la dernière version de Node.js depuis le site officiel :  
+🔗 https://nodejs.org/fr
+
+Après l'installation, vérifiez que tout est en place :
+
+```bash
+node --version
+npm --version
+```
+2️⃣ Installation de l’Angular CLI
+
+Pour installer Angular
+```bash
+npm install -g @angular/cli
+```
+
+Pour vérifier l'instalation : 
+```bash
+ng --version
+```
+3️⃣ Nettoyage du projet (si nécessaire)
+
+Si vous avez cloné un projet Angular existant ou que vous rencontrez des erreurs de dépendances, effectuez un nettoyage :
+```bash
+rm -rf node_modules package-lock.json
+```
+💡 Sous Windows, vous pouvez utiliser les commandes suivantes dans le terminal :
+```bash
+rd /s /q node_modules
+del package-lock.json
+```
+4️⃣ Réinstallation des dépendances
+
+Une fois le nettoyage effectué, réinstallez les dépendances du projet :
+```bash
+npm install
+```
+
+5️⃣ Compilation du projet
+
+Compilez le projet Angular pour vérifier qu’il fonctionne correctement :
+```bash
+ng build
+```
+
+6️⃣ Lancement du serveur de développement
+
+Pour lancer le projet en local (sur http://localhost:4200) :
+```bash
+ng serve
+``` 
+✅ Résultat
+
+Si tout est correct, votre application Angular sera accessible à cette adresse :
+➡️ http://localhost:4200
+🧼 Dépannage (en cas d’erreurs)
+
+    Supprimez le cache npm :
+```bash
+npm cache clean --force
+```
+    Recommencez les étapes 3 à 5.
+
+
+
 # Ponyracer
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
